@@ -6,11 +6,11 @@ const app = express();
 
 const port = process.env.PORT || 3001;
 
-// routes:
-app.use('/contacts', contactsRouter);
-
 // middlewares
 app.use(express.json());
+
+// routes:
+app.use('/contacts', contactsRouter);
 
 app.get('', (req,res) => {
     res.json({ message: "This is a response!"})

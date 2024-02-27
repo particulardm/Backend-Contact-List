@@ -15,6 +15,7 @@ const getAllContacts = async (req, res) => {
         res.json(contacts);
     } catch(err) {
         console.log('Something is wrong, ', err);
+        res.status(400).json({ message: "Something is wrong...", error: err });
     } finally {
         await mongoose.disconnect();
     }
@@ -31,6 +32,7 @@ const postContact = async (req, res) => {
         res.json(contact);
     } catch(err) {
         console.log('Something is wrong, ', err);
+        res.status(400).json({ message: "Something is wrong...", error: err });
     } finally {
         await mongoose.disconnect();
     }
@@ -47,6 +49,7 @@ const getContact = async (req, res) => {
         res.json(contact);
     } catch(err) {
         console.log('Something is wrong, ', err);
+        res.status(400).json({ message: "Something is wrong...", error: err });
     } finally {
         await mongoose.disconnect();
     }
@@ -64,6 +67,7 @@ const updateContact = async (req, res) => {
         res.json(contact);
     } catch(err) {
         console.log('Something is wrong, ', err);
+        res.status(400).json({ message: "Something is wrong...", error: err });
     } finally {
         await mongoose.disconnect();
     }
@@ -80,6 +84,7 @@ const deleteContact = async (req, res) => {
         res.json(contact);
     } catch(err) {
         console.log('Something is wrong, ', err);
+        res.status(400).json({ message: "Something is wrong...", error: err });
     } finally {
         await mongoose.disconnect();
     }

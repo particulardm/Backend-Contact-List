@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
 const contactsRouter = require('./routers/contactsRouter');
+const userRouter = require('./routers/userRouter');
 
 const app = express();
 
@@ -11,10 +12,7 @@ app.use(express.json());
 
 // routes:
 app.use('/contacts', contactsRouter);
-
-app.get('', (req,res) => {
-    res.json({ message: "This is a response!"})
-});
+app.use('/user', userRouter);
 
 app.listen(port, () => {
     console.log('Listening on the following port:', port);

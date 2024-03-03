@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const contactsRouter = require('./routers/contactsRouter');
 const userRouter = require('./routers/userRouter');
+const verify = require('./middlewares/verify');
 
 const app = express();
 
@@ -10,8 +11,13 @@ const port = process.env.PORT || 3001;
 // middlewares
 app.use(express.json());
 
+function blabla() {
+    console.log('blabla');
+    next();
+}
+
 // routes:
-app.use('/contacts', contactsRouter);
+app.use('/contacts', verify, contactsRouter);
 app.use('/user', userRouter);
 
 app.listen(port, () => {

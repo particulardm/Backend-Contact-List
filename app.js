@@ -11,11 +11,6 @@ const port = process.env.PORT || 3001;
 // middlewares
 app.use(express.json());
 
-function blabla() {
-    console.log('blabla');
-    next();
-}
-
 // routes:
 app.use('/contacts', verify, contactsRouter);
 app.use('/user', userRouter);
